@@ -8,7 +8,7 @@ on:
     
 jobs:
   build-ubuntu:
-    name: Build app on Ubuntu
+    name: terraform plan
     uses: joshjohanning-workflows/workflow-terraform/.github/workflows/terraform-plan.yml@main
     with:
       runs-on: ubuntu-latest
