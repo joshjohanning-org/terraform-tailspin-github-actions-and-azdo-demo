@@ -12,7 +12,7 @@ jobs:
     uses: joshjohanning-workflows/workflow-terraform/.github/workflows/terraform-plan.yml@main
     with:
       runs-on: ubuntu-latest
-      varFile: 'terraform.DEV.tfvars'
+      var-file: 'terraform.DEV.tfvars'
       backend-arg: '-backend-config=backend.DEV.tfvars'
       artifact-name: plan-dev
       working-directory: app
