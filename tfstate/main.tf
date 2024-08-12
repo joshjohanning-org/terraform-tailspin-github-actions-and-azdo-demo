@@ -5,7 +5,7 @@ provider "azurerm" {
 # when originally creating the tfstate resource group and resources, comment out this code. 
 # after creating, re-run terraform init and terraform apply to switch the back-end
 terraform {
-  required_version = ">= 1.5.7"
+  required_version = ">= 1.9.4"
 
   required_providers {
     azurerm = {
