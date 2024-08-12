@@ -16,7 +16,7 @@ permissions:
 jobs:
   dev-plan:
     name: terraform-dev
-    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@terraform
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@v1
     with:
       runs-on: ubuntu-latest
       var-file: 'terraform.DEV.tfvars'
@@ -31,7 +31,7 @@ jobs:
 
   dev-apply:
     name: terraform-dev
-    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@terraform
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@v1
     needs: [dev-plan]
     with:
       runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
 
   prod-plan:
     name: terraform-prod
-    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@terraform
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@v1
     needs: [dev-plan, dev-apply]
     with:
       runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
 
   prod-apply:
     name: terraform-prod
-    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@terraform
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@v1
     needs: [dev-plan, dev-apply, prod-plan]
     with:
       runs-on: ubuntu-latest
