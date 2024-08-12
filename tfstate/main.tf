@@ -5,6 +5,14 @@ provider "azurerm" {
 # when originally creating the tfstate resource group and resources, comment out this code. 
 # after creating, re-run terraform init and terraform apply to switch the back-end
 terraform {
+  required_version = ">= 1.5.7"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.115.0"
+    }
+  }
   backend "azurerm" {
     resource_group_name   = "rg-tailspin-tfstate"
     storage_account_name  = "tailspintfstate"
