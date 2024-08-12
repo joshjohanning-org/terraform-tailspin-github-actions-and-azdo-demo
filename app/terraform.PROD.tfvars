@@ -18,4 +18,4 @@ kv_service_principals = {
 database_server_name = "tailspinjosh-server-dev"
 database_name        = "tailspinjosh-db-dev"
 
-database_name = "tailspinjosh-db-dev"
+appi_workspace_id = "/subscriptions/2e9bfb26-ca29-44f5-8920-72c1b0b37188/resourceGroups/DefaultResourceGroup-WUS/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-2e9bfb26-ca29-44f5-8920-72c1b0b37188-WUS"

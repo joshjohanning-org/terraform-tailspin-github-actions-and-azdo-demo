@@ -55,3 +55,7 @@ variable "sql_firewall_rules" {
     }
   }
 }
+
+variable "appi_workspace_id" {
+  description = "The log analytics workspace ID to use for application insights"
+}
