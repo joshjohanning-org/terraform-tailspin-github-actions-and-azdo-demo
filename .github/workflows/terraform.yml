@@ -5,14 +5,18 @@ on:
     branches:
     - main
   workflow_dispatch:
+  pull_request: 
+    branches:
+    - main
     
 jobs:
   terraform-plan:
     name: terraform plan
-    uses: joshjohanning-workflows/workflow-terraform/.github/workflows/terraform-plan.yml@main
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@terraform
     with:
       runs-on: ubuntu-latest
       var-file: 'terraform.DEV.tfvars'
       backend-arg: '-backend-config=backend.DEV.tfvars'
       artifact-name: plan-dev
       working-directory: app
+      environment: 'dev-plan'
