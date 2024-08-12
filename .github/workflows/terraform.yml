@@ -14,16 +14,31 @@ permissions:
   id-token: write
 
 jobs:
-  terraform-plan:
-    name: terraform plan
+  dev-plan:
+    name: terraform-dev
     uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@terraform
     with:
       runs-on: ubuntu-latest
       var-file: 'terraform.DEV.tfvars'
       backend-arg: '-backend-config=backend.DEV.tfvars'
-      artifact-name: plan-dev
+      artifact-name: dev-plan
       working-directory: app
       environment: 'dev-plan'
+      terraform-version: 1.9.4
+      azure-client-id: 3b18bd87-f72b-4260-b1cd-160d08ec9fc3
+      azure-subscription-id: 2e9bfb26-ca29-44f5-8920-72c1b0b37188
+      azure-tenant-id: e9846558-c4f0-4312-a89e-ebebe80779a1
+
+  dev-apply:
+    name: terraform-dev
+    uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@terraform
+    with:
+      runs-on: ubuntu-latest
+      var-file: 'terraform.DEV.tfvars'
+      backend-arg: '-backend-config=backend.DEV.tfvars'
+      artifact-name: dev-plan
+      working-directory: app
+      environment: 'dev-apply'
       terraform-version: 1.9.4
       azure-client-id: 3b18bd87-f72b-4260-b1cd-160d08ec9fc3
       azure-subscription-id: 2e9bfb26-ca29-44f5-8920-72c1b0b37188
