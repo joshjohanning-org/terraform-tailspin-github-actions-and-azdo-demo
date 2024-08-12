@@ -32,6 +32,7 @@ jobs:
   dev-apply:
     name: terraform-dev
     uses: joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@terraform
+    needs: dev-plan
     with:
       runs-on: ubuntu-latest
       var-file: 'terraform.DEV.tfvars'
