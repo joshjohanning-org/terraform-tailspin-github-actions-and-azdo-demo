@@ -14,6 +14,10 @@ variable "app_service" {
   description = "The app service to create that uses the app service plan"
 }
 
+variable "app_service_aspnetcore_environment" {
+  description = "The value for the ASPNETCORE_ENVIRONMENT environment variable on the app service"
+}
+
 variable "app_service_slot" {
   description = "The swap slot to create"
 }

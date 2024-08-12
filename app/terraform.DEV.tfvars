@@ -1,15 +1,11 @@
-location = "eastus"
-
-resource_group = "rg-tailspin-terraform-DEV"
-
-app_service_plan = "asp-tailspin-DEV"
-
-app_service = "app-tailspin-DEV"
-
-app_service_slot = "swap"
+location                           = "eastus"
+resource_group                     = "rg-tailspin-terraform-DEV"
+app_service_plan                   = "asp-tailspin-DEV"
+app_service                        = "app-tailspin-demo-DEV"
+app_service_aspnetcore_environment = "Development"
+app_service_slot                   = "swap"
 
 key_vault = "kv-tailspin-DEV"
-
 kv_service_principals = {
   "azdo-spn" = {
     "object_id" = "4ded4b3b-26a7-4ea4-a166-d33f49d8a0d3"
