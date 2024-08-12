@@ -4,6 +4,10 @@ Sample terraform code deploying to Azure.
 
 GitHub Actions workflow are in `./.github/workflows` and Azure DevOps pipelines are in `./pipeline`.
 
+## todo
+
+- [ ] #TODO: [Modify OIDC to facilitate Azure access with reusable workflows](https://josh-ops.com/posts/github-actions-oidc-reusable-workflows/) (instead of creating each environment as a federated credential)
+
 ## Set up the backend
 
 You have to create the backend resource group and storage account first.
