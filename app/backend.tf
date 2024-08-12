@@ -1,7 +1,7 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "tfstate"
-    storage_account_name = "tfstatejoshspacegame"
+    resource_group_name  = "rg-tailspin-tfstate"
+    storage_account_name = "tailspintfstate"
     container_name       = "tfstate"
   }
 }
