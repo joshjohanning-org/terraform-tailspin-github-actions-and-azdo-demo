@@ -29,10 +29,26 @@ jobs:
       - name: Run tfsec
         uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
-          sarif_file: tfsec.sarif         
+          sarif_file: tfsec.app.sarif
+          working_directory: app
+          tfvars_file: app/terraform.DEV.tfvars
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: tfsec.sarif  
+          sarif_file: tfsec.app.sarif  
+          category: app
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-sarif-action@v0.1.4
+        with:
+          sarif_file: tfsec.tfstate.sarif
+          working_directory: tfstate
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: tfsec.tfstate.sarif  
+          category: tfstate
