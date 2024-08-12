@@ -1,4 +1,4 @@
-data "azurerm_subscription" "primary" {}
+# data "azurerm_subscription" "primary" {}
 
 # can't use b/c in this tenant b/c no permissions
 # # azure pipelines service principal
