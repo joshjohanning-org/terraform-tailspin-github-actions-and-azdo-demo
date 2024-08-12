@@ -14,6 +14,18 @@ resource "azurerm_linux_web_app" "app" {
   service_plan_id     = azurerm_service_plan.asp.id
   https_only          = true
 
+  site_config {
+    always_on                         = false
+    scm_minimum_tls_version           = "1.2"
+    ftps_state                        = "Disabled"
+    ip_restriction_default_action     = "Allow"
+    scm_ip_restriction_default_action = "Allow"
+
+    application_stack {
+      dotnet_version = "7.0"
+    }
+  }
+
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appi.instrumentation_key
     "APPINSIGHTS_PROFILERFEATURE_VERSION"             = "1.0.0"
@@ -52,18 +64,6 @@ resource "azurerm_linux_web_app" "app" {
       "XDT_MicrosoftApplicationInsightsJava",
       "XDT_MicrosoftApplicationInsights_NodeJS",
     ]
-  }
-
-  site_config {
-    always_on                         = false
-    scm_minimum_tls_version           = "1.2"
-    ftps_state                        = "Disabled"
-    ip_restriction_default_action     = "Allow"
-    scm_ip_restriction_default_action = "Allow"
-
-    application_stack {
-      dotnet_version = "7.0"
-    }
   }
 }
 
