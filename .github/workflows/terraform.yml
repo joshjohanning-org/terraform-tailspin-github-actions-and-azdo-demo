@@ -35,7 +35,6 @@ jobs:
     needs: dev-plan
     with:
       runs-on: ubuntu-latest
-      var-file: 'terraform.DEV.tfvars'
       backend-arg: '-backend-config=backend.DEV.tfvars'
       artifact-name: dev-plan
       working-directory: app
