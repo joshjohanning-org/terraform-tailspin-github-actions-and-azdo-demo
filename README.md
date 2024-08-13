@@ -4,10 +4,6 @@ Sample terraform code deploying to Azure.
 
 GitHub Actions workflow are in `./.github/workflows` and Azure DevOps pipelines are in `./pipeline`.
 
-## todo
-
-- [ ] #TODO: [Modify OIDC to facilitate Azure access with reusable workflows](https://josh-ops.com/posts/github-actions-oidc-reusable-workflows/) (instead of creating each environment as a federated credential)
-
 ## Set up the backend
 
 You have to create the backend resource group and storage account first.
@@ -83,3 +79,19 @@ Switching environments and not migrating state:
 ```bash
 terraform init -backend-config=backend.PROD.tfvars -reconfigure
 ```
+
+## Setting up OIDC with reusable workflow
+
+OIDC is set up to authenticate to Azure from this repository only if you are referencing the approved reusable workflows:
+
+- [joshjohanning-org/reusable-workflows/.github/workflows/terraform-plan.yml@v1](https://github.com/joshjohanning-org/reusable-workflows/blob/v1/.github/workflows/terraform-plan.yml)
+- [joshjohanning-org/reusable-workflows/.github/workflows/terraform-apply.yml@v1](https://github.com/joshjohanning-org/reusable-workflows/blob/v1/.github/workflows/terraform-apply.yml)
+
+Allowing the `job_workflow_ref` subject to be sent; making the change via the CLI:
+
+```sh
+gh oidc-sub set --repo joshjohanning-org/terraform-tailspin-github-actions-and-azdo-demo --subs "job_workflow_ref"
+```
+
+> [!TIP]
+> See my [blog post](https://josh-ops.com/posts/github-actions-oidc-reusable-workflows/) for more information on this
