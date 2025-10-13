@@ -35,7 +35,7 @@ jobs:
           tfvars_file: app/terraform.DEV.tfvars
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: tfsec.app.sarif  
@@ -48,7 +48,7 @@ jobs:
           working_directory: tfstate
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: tfsec.tfstate.sarif  
